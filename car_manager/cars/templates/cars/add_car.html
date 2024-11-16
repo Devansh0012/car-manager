@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Car List
+{% endblock %}
+
+{% block content %}
+    <h1 class="text-center mt-4">Welcome to car management app</h1>
+    <h2>
+        {% if form.instance.id %}
+        Edit Car 
+        {% else %} 
+        Add Car 
+        {% endif %}
+    </h2>
+    <form method="POST" enctype="multipart/form-data" class="form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-warning">Submit</button>
+    </form>
+    <a href="{% url "car_list" %}">Back to Car list</a>
+{% endblock %}

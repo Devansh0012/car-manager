@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Car List
+{% endblock %}
+
+{% block content %}
+    <h1 class="text-center mt-4">Here is the detail of you car</h1>
+    <h2>{{ car }}</h2>
+    <a href="{% url "car_list" %}">Back to Car list</a>
+    <a href="{% url "edit_car" car.id %}">Edit Car</a>
+    <a href="{% url "delete_car" car.id %}">Delete Car</a>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Car List
+{% endblock %}
+
+{% block content %}
+    <h1 class="text-center mt-4">Are you sure to delete the car?</h1>
+    <h2>{{ car }}</h2>
+    <form method="POST" class="form">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a href="{% url "car_list" %}" class="btn btn-success">Cancel</a>
+    </form>
+{% endblock %}
