@@ -26,7 +26,11 @@ SECRET_KEY = "django-insecure-r7op61xy)nqbq$ap119^v$z#2c^ca4lj^g$ra2d!mc=5*#oh1+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "car-manager-47cd.onrender.com"]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://car-manager-47cd.onrender.com",
+]
 
 
 # Application definition
@@ -39,6 +43,11 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "cars",
+]
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "https://car-manager-47cd.onrender.com",
 ]
 
 MIDDLEWARE = [
