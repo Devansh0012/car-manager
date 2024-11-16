@@ -7,6 +7,12 @@
 {% block content %}
     <h1 class="text-center mt-4">Welcome to car management app</h1>
     <a class="btn btn-primary mb-4" href="{% url "add_car" %}">Add a Car</a>
+    <form method="get" action="{% url 'search_cars' %}" class="mb-4">
+      <div class="input-group">
+          <input type="text" name="q" class="form-control" placeholder="Search for cars..." value="{{ request.GET.q }}">
+          <button class="btn btn-primary" type="submit">Search</button>
+      </div>
+    </form>
     <div class="container row gap-3">
         {% for car in cars %}
         <div class="card" style="width: 18rem;">

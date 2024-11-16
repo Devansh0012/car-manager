@@ -54,9 +54,11 @@ def delete_car(request, car_id):
     return render(request, 'cars/car_deleted.html', {'car': car})
 
 def search_cars(request):
-    query = request.GET.get('query', '')
-    cars = Car.objects.filter(name__icontains=query) if query else Car.objects.all()
-    return render(request, 'cars/car_list.html', {'cars': cars})
+    query = request.GET.get('q')
+    results = []
+    if query:
+        results = Car.objects.filter(name__icontains=query)  # Case-insensitive search
+    return render(request, 'cars/search_results.html', {'query': query, 'results': results})
 
 
 @login_required
